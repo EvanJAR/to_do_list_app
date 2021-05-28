@@ -46,4 +46,8 @@ public class Day {
     public void deleteActivity(Activity activityToDelete){
         this.list.remove(activityToDelete);
     }
+
+    public void emptyList(){
+        this.list.clear();
+    }
 }

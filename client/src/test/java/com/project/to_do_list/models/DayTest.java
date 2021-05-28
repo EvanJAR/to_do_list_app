@@ -39,4 +39,14 @@ public class DayTest {
         day.deleteActivity(activity);
         assertEquals(0, day.getList().size());
     }
+
+    @Test
+    public void canClearList(){
+        Activity activity2 = new Activity("Brush teeth", false, day);
+        day.addNewActivity(activity);
+        day.addNewActivity(activity2);
+        assertEquals(2, day.getList().size());
+        day.emptyList();
+        assertEquals(0, day.getList().size());
+    }
 }

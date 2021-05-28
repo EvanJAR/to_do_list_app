@@ -42,4 +42,8 @@ public class Day {
     public void addNewActivity(Activity newActivity){
         this.list.add(newActivity);
     }
+
+    public void deleteActivity(Activity activityToDelete){
+        this.list.remove(activityToDelete);
+    }
 }

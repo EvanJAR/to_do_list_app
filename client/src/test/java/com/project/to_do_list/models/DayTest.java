@@ -33,4 +33,10 @@ public class DayTest {
         day.addNewActivity(activity);
         assertEquals(1, day.getList().size());
     }
+
+    @Test
+    public void canDeleteActivityFromList(){
+        day.deleteActivity(activity);
+        assertEquals(0, day.getList().size());
+    }
 }

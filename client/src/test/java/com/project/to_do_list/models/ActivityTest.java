@@ -10,11 +10,13 @@ import static org.junit.Assert.assertEquals;
 public class ActivityTest {
 
     Activity activity;
+    Day day;
 
 
     @Before
     public void before() {
-        activity = new Activity("Clean room", true);
+        day = new Day("Monday");
+        activity = new Activity("Clean room", true, day);
     }
 
     @Test

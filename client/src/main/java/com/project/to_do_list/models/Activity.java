@@ -1,5 +1,7 @@
 package com.project.to_do_list.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,9 +17,15 @@ public class Activity {
     @Column
     private Boolean finished;
 
-    public Activity(String description, Boolean finished) {
+    @ManyToOne
+    @JoinColumn(name = "day_id", nullable = false)
+    @JsonIgnoreProperties({"activities"})
+    private Day day;
+
+    public Activity(String description, Boolean finished, Day day) {
         this.description = description;
         this.finished = finished;
+        this.day = day;
     }
 
     public Activity(){};
@@ -45,4 +53,6 @@ public class Activity {
     public void setFinished(Boolean finished) {
         this.finished = finished;
     }
+
+
 }

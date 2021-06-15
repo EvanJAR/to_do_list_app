@@ -28,7 +28,7 @@ public class Activity {
         this.day = day;
     }
 
-    public Activity(){};
+
 
     public Long getId() {
         return id;

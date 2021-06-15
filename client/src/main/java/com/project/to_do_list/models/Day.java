@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="days")
@@ -20,11 +21,17 @@ public class Day {
     @OneToMany
     @JoinColumn(name = "activity_id", nullable = false)
     @JsonIgnoreProperties({"days"})
-    private ArrayList<Activity> list;
+    private List<Activity> list;
 
     public Day(String name){
         this.name = name;
         this.list = new ArrayList<>();
+    }
+
+    public Day(){};
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -35,7 +42,7 @@ public class Day {
         this.name = name;
     }
 
-    public ArrayList<Activity> getList() {
+    public List<Activity> getList() {
         return list;
     }
 

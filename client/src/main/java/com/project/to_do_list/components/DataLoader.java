@@ -27,8 +27,10 @@ public class DataLoader implements ApplicationRunner {
         Day day2 = new Day("Tuesday");
         dayRepository.save(day2);
 
-//        Activity activity1 = new Activity("wash dishes", false, day1);
-//        activityRepository.save(activity1);
+        Activity activity1 = new Activity("wash dishes", false, day1);
+        activityRepository.save(activity1);
+        day1.addNewActivity(activity1);
+        dayRepository.save(day1);
 
 //        Activity activity2 = new Activity("hoover floor", false, day1);
 //        activityRepository.save(activity2);

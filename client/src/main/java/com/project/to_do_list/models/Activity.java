@@ -18,7 +18,7 @@ public class Activity {
     private Boolean finished;
 
     @ManyToOne
-    @JoinColumn(name = "day_id", nullable = false)
+    @JoinColumn(name = "day_id")
     @JsonIgnoreProperties({"activities"})
     private Day day;
 
@@ -28,6 +28,7 @@ public class Activity {
         this.day = day;
     }
 
+    public Activity(){};
 
 
     public Long getId() {
@@ -52,6 +53,11 @@ public class Activity {
 
     public void setFinished(Boolean finished) {
         this.finished = finished;
+    }
+
+    public void updateActivity(String newDescription, Boolean status){
+        setDescription(newDescription);
+        setFinished(status);
     }
 
 

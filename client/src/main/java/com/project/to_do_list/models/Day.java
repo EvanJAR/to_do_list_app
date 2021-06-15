@@ -19,7 +19,7 @@ public class Day {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "activity_id", nullable = false)
+    @JoinColumn(name = "activity_id")
     @JsonIgnoreProperties({"days"})
     private List<Activity> list;
 
@@ -29,6 +29,7 @@ public class Day {
     }
 
     public Day(){};
+
 
     public Long getId() {
         return id;

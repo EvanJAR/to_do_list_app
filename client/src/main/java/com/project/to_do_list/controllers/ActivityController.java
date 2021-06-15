@@ -34,10 +34,10 @@ public class ActivityController {
         return new ResponseEntity<>(activity, HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/activities")
+    @PutMapping(value = "/activities/{id}")
     public ResponseEntity<Activity> updateActivity (@RequestBody Activity activity){
         activityRepository.save(activity);
-        return new ResponseEntity<>(activity, HttpStatus.CREATED);
+        return new ResponseEntity<>(activity, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/activities/{id}")

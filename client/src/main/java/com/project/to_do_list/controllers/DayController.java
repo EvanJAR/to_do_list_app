@@ -1,5 +1,6 @@
 package com.project.to_do_list.controllers;
 
+import com.project.to_do_list.models.Activity;
 import com.project.to_do_list.models.Day;
 import com.project.to_do_list.repositories.ActivityRepository;
 import com.project.to_do_list.repositories.DayRepository;
@@ -39,13 +40,9 @@ public class DayController {
     }
 
     @PutMapping(value = "/days/{id}")
-    public Optional<Day> updateDay (@PathVariable Long id, @RequestBody Day newDay){
-        return dayRepository.findById(id)
-                .map(day -> {
-                    day.setName(newDay.getName());
-                    return dayRepository.save(day);
-                });
-
+    public ResponseEntity<Day> updateDay (@RequestBody Day day){
+        dayRepository.save(day);
+        return new ResponseEntity<>(day, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/days/{id}")
